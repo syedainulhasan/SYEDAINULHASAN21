@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation of Energy & Air Purification</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+            justify-content: center; /* Center modal */
+            align-items: center; /* Center modal */
+        }
+
+        .center {
+            background-color: white; /* White background for modal */
+            border: 5px solid white; /* White border */
+            padding: 20px; /* Padding around content */
+            border-radius: 10px; /* Rounded corners */
+            position: relative; /* Position for close button */
+            width: 100%; /* Set a larger width for the modal */
+            max-width: 800px; /* Maximum width */
+            height: auto; /* Height auto to fit content */
+        }
+
+        .close {
+            position: absolute; /* Position it in the modal */
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .rotation {
+            display: flex;
+            justify-content: center; /* Center the image */
+        }
+
+        #rotatingImage {
+            width: 400px; /* Set a fixed width for the image */
+            height: auto; /* Maintain aspect ratio */
+            cursor: grab; /* Change cursor on hover */
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex; /* Use flexbox for navigation */
+            justify-content: space-between; /* Space between logo and links */
+            align-items: center; /* Center vertically */
+            padding: 20px; /* Padding for nav */
+            background-color: #2c3e50; /* Light background */
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center; /* Center logo and text */
+        }
+
+        .nav-left img {
+            height: 50px; /* Set logo height */
+            margin-right: 10px; /* Space between logo and text */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            margin: 0; /* Remove margin */
+            padding: 0; /* Remove padding */
+            display: flex; /* Use flexbox for nav links */
+        }
+
+        li {
+            margin-left: 20px; /* Space between links */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Text color */
+        }
+
+        /* Flexbox for button and side image */
+        .content-container {
+            display: flex;
+            flex-direction: column; /* Change to column for vertical alignment */
+            align-items: center; /* Center horizontally */
+            margin: 20px; /* Margin around container */
+        }
+
+        .img-container {
+            margin-bottom: 20px; /* Space between car image and button */
+        }
+
+        .img-container img {
+            width: 500px; /* Width of side car image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Button styles */
+        button {
+            padding: 10px 20px; /* Add padding */
+            font-size: 18px; /* Font size */
+            color: white; /* Text color */
+            background-color: #28a745; /* Button color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            transition: all 0.3s ease; /* Smooth transition */
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Glow effect */
+        }
+
+        button:hover {
+            background-color: #218838; /* Darker green on hover */
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.7); /* Increase glow on hover */
+        }
+
+        button:focus {
+            outline: none; /* Remove outline on focus */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+    
+         Conservation of Energy & Air Purification
+      
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="conservation.html">Conservation Tips</a></li>
+            <li><a href="air_purification.html">Air Purification</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <br><br>
+    <!-- Hero Section -->
+    <section id="intro">
+        <div class="container">
+            <h2>Welcome to Conservation of Energy & Air Purification</h2>
+            <p>Our mission is to empower individuals and communities with the knowledge to conserve energy and purify the air around us. With a focus on sustainable practices and innovative solutions, we aim to create a healthier environment for future generations.</p>
+        </div>
+    </section>
+    
+    <!-- Content Container with Car Image and 3D View Button -->
+    <div class="content-container">
+        <div class="img-container">
+            <img src="images/360/2.png" alt="Side Car Image">
+        </div>
+        <button onclick="open3DView()">3D View</button>
+    </div>
+    
+    <!-- 3D Modal -->
+    <div id="modal-wrapper" class="modal">
+        <div class="center">
+            <span onclick="close3DView()" class="close">&times;</span>
+            <div class="rotation">
+                <img id="rotatingImage" src="images/360/2.png" alt="3D rotating image">
+            </div>
+        </div>
+    </div>
+    <br> <br> <br>
+    <div>
+        <section id="hero">
+            <img src="https://preview.colorkit.co/color/ECF0F1.png?type=article-preview-logo&size=social&colorname=Paper%20White" alt="Clean energy and air purification" class="hero-image">
+            <div class="hero-text">
+                <h1 id="hello">Preserving Energy And Purifying Air</h1>
+                <p id="hello" > Discover practical tips and solutions for a sustainable future.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Sections -->
+    <section id="main-sections">
+        <div class="container">
+            <div class="section conservation-tips">
+                <h3>Conservation Tips</h3>
+                <img src="https://cdn.vectorstock.com/i/500p/74/15/ecology-logo-energy-saving-lamp-symbol-icon-eco-vector-17127415.jpg" alt="Conservation tips" class="section-image">
+                <p>Explore effective tips and tricks to conserve energy in daily life. Learn how small changes in your habits can contribute to significant energy savings.</p>
+                <a href="conservation.html" class="btn">Learn More</a>
+            </div>
+            
+            <div class="section air-purification">
+                <h3>Air Purification</h3>
+                <img src="https://thumbs.dreamstime.com/b/air-purifier-filter-cleaning-removing-dust-virus-fresh-logo-design-conditioner-filtration-purifica-purification-protection-208276204.jpg" alt="Air purification methods" id="sectionimg">
+                <p>Discover various methods for purifying the air around you, from natural solutions to advanced technologies. Protect your health and the environment.</p>
+                <a href="air_purification.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <br> <br> <br>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h4>About Us</h4>
+                <p>Dedicated to sustainable practices, our team provides resources on energy conservation and air purification for a healthier planet.</p>
+            </div>
+
+            <div class="footer-section contact">
+                <h4>Contact Us</h4>
+                <p>Email: info@conservation-air.com</p>
+                <p>Phone: +1 (555) 012-3456</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Conservation of Energy & Air Purification. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentImage = 2;
+        const maxImages = 45;
+        let isDragging
+        = false;
+        let startX = 2;
+
+        function open3DView() {
+            document.getElementById('modal-wrapper').style.display = 'flex'; // Use flex to center modal
+            document.getElementById('rotatingImage').src = `images/360/${currentImage}.png`; // Reset to first image
+        }
+
+        function close3DView() {
+            document.getElementById('modal-wrapper').style.display = 'none';
+        }
+
+        function handleMouseDown(event) {
+            isDragging = true;
+            startX = event.clientX;
+            document.getElementById('rotatingImage').style.cursor = 'grabbing';
+        }
+
+        function handleMouseUp() {
+            isDragging = false;
+            document.getElementById('rotatingImage').style.cursor = 'grab';
+        }
+
+        function handleMouseMove(event) {
+            if (isDragging) {
+                const deltaX = event.clientX - startX;
+
+                // Only change image after moving 10 pixels
+                if (Math.abs(deltaX) >= 10) {
+                    startX = event.clientX;
+
+                    // Rotate images based on dragging direction
+                    if (deltaX > 0) {
+                        currentImage = (currentImage - 1 + maxImages) % maxImages || maxImages;
+                    } else if (deltaX < 0) {
+                        currentImage = (currentImage % maxImages) + 2;
+                    }
+
+                    // Update image
+                    document.getElementById('rotatingImage').src = `images/360/${currentImage}.png`;
+                }
+            }
+        }
+
+        // Add event listeners for drag rotation
+        document.getElementById('rotatingImage').addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mouseup', handleMouseUp);
+        window.addEventListener('mousemove', handleMouseMove);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation of Energy & Air Purification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="conservation.html">Conservation Tips</a></li>
+            <li><a href="air_purification.html">Air Purification</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="intro">
+        <div class="container">
+            <h2>Welcome to Conservation of Energy & Air Purification</h2>
+            <p>Our mission is to empower individuals and communities with the knowledge to conserve energy and purify the air around us. With a focus on sustainable practices and innovative solutions, we aim to create a healthier environment for future generations.</p>
+        </div>
+    </section>
+    
+    <!-- 3D Image View Section -->
+    <div class="content-container">
+        <div class="img-container">
+            <button onclick="open3DView()">3D View</button>
+        </div>
+    </div>
+    
+    <!-- 3D Modal -->
+    <div id="modal-wrapper" class="modal" style="display:none;">
+        <div class="center">
+            <span onclick="close3DView()" class="close">&times;</span>
+            <div class="rotation" style="display: flex; align-items: center;">
+                <!-- Static Car Image on the Side -->
+                <img src="images/car.png" alt="Car Image" style="width: 200px; margin-right: 20px;">
+                
+                <!-- Placeholder for 3D rotation image -->
+                <img id="rotatingImage" src="images/360/1.png" alt="3D rotating image" style="cursor: grab;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h4>About Us</h4>
+                <p>Dedicated to sustainable practices, our team provides resources on energy conservation and air purification for a healthier planet.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="conservation.html">Conservation Tips</a></li>
+                    <li><a href="air_purification.html">Air Purification</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact Us</h4>
+                <p>Email: info@conservation-air.com</p>
+                <p>Phone: +1 (555) 012-3456</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Conservation of Energy & Air Purification. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentImage = 1;
+        let maxImages = 45;
+        let isDragging = false;
+        let startX = 0;
+
+        function open3DView() {
+            document.getElementById('modal-wrapper').style.display = 'block';
+            document.getElementById('rotatingImage').src = `images/360/1.png`; // Reset to the first image
+        }
+
+        function close3DView() {
+            document.getElementById('modal-wrapper').style.display = 'none';
+        }
+
+        function handleMouseDown(event) {
+            isDragging = true;
+            startX = event.clientX;
+            document.getElementById('rotatingImage').style.cursor = 'grabbing';
+        }
+
+        function handleMouseUp() {
+            isDragging = false;
+            document.getElementById('rotatingImage').style.cursor = 'grab';
+        }
+
+        function handleMouseMove(event) {
+            if (isDragging) {
+                const deltaX = event.clientX - startX;
+                startX = event.clientX;
+
+                // Rotate images based on dragging direction
+                if (deltaX > 0) {
+                    currentImage = (currentImage - 1 + maxImages) % maxImages || maxImages;
+                } else if (deltaX < 0) {
+                    currentImage = (currentImage % maxImages) + 1;
+                }
+
+                // Update image
+                document.getElementById('rotatingImage').src = `images/360/${currentImage}.png`;
+            }
+        }
+
+        // Add event listeners for drag rotation
+        document.getElementById('rotatingImage').addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mouseup', handleMouseUp);
+        window.addEventListener('mousemove', handleMouseMove);
+    </script>
+
+</body>
+</html>
